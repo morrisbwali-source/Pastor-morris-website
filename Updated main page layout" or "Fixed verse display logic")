@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pastor Morris C. Bwali Jr</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#ffffff;
+text-align:center;
+line-height: 1.6;
+}
+
+header{
+background:#6a0dad;
+color:white;
+padding:20px;
+}
+
+header h1 {
+    font-weight: bold;
+}
+
+section{
+padding:40px;
+}
+
+h2{
+color:#6a0dad;
+}
+
+.button{
+background:#25D366;
+color:white;
+padding:12px 20px;
+border-radius:30px;
+text-decoration:none;
+display:inline-block;
+margin-top:10px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: all 0.3s ease;
+font-weight: bold;
+}
+
+.button:hover{
+background:#1E8449;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+transform: translateY(-1px);
+}
+
+img{
+max-width:300px;
+border-radius:10px;
+height: auto;
+}
+
+footer{
+background:black;
+color:white;
+padding:20px;
+}
+
+/* --- STYLING FOR FORM ELEMENTS --- */
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"],
+.payment-form input[type="number"],
+.payment-form input[type="tel"] {
+    width: 80%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Pastor Morris C. Bwali Jr</h1>
+<p>Good News Church — The Home of Zoe</p>
+</header>
+
+<section>
+
+<img src="images/pastor-photo.jpg">
+
+<h2>Welcome</h2>
+
+<p>
+Spreading the Gospel, telling the world what God has done.
+</p>
+
+</section>
+
+<section>
+
+<h2>Daily Bible Verse</h2>
+
+<p id="verse">Loading verse...</p>
+
+<script>
+
+fetch("[https://beta.ourmanna.com/api/v1/get/?format=json](https://beta.ourmanna.com/api/v1/get/?format=json)")
+.then(r=>r.json())
+.then(d=>{
+document.getElementById("verse").innerText =
+d.verse.details.text + " - " + d.verse.details.reference
+})
+
+</script>
+
+</section>
+
+<section>
+
+<h2>Sermons</h2>
+
+<iframe width="300" height="200"
+src="[https://www.youtube.com/embed/VIDEOID](https://www.youtube.com/embed/VIDEOID)">
+</iframe>
+
+</section>
+
+<section>
+
+<h2>Events</h2>
+
+<p>God's Warriors Intercession Prayers</p>
+
+<p>Every Friday 8 – 9 PM</p>
+
+<img src="images/event.jpg">
+
+</section>
+
+<!-- NEW MOBILE MONEY PAYMENT SECTION -->
+<section class="payment-form">
+<h2>💳 Airtel Mobile Money Offering</h2>
+<p>Support the ministry directly via Airtel Money.</p>
+<form action="/api/make-payment" method="POST"> 
+    <label for="amount">Donation Amount (ZMW):</label><br>
+    <input type="number" id="amount" name="amount" min="1" step="0.01" required><br><br>
+    
+    <label for="phone">Your Phone Number (e.g., 0976...):</label><br>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{9,15}" required><br><br>
+    
+    <button type="submit" class="button">Submit Offering</button>
+</form>
+</section>
+<!-- END OF NEW SECTION -->
+
+
+<section class="registration-form">
+<h2>Church Member Registration</h2>
+<p>Join our community securely.</p>
+<form action="/api/register" method="POST"> 
+    <label for="name">Full Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <button type="submit" class="button">Register Now</button>
+</form>
+</section>
+
+
+<section>
+
+<h2>Prayer Request</h2>
+
+<a class="button"
+href="[https://wa.me/260976328080?text=Pastor%20please%20pray%20for%20me](https://wa.me/260976328080?text=Pastor%20please%20pray%20for%20me)">
+Send Prayer Request
+</a>
+
+</section>
+
+<section>
+
+<h2>Podcast</h2>
+
+<audio controls>
+
+<source src="sermon.mp3">
+
+</audio>
+
+</section>
+
+<section>
+
+<h2>Contact</h2>
+
+<p>Kasama, Northern Province, Zambia</p>
+
+<p>WhatsApp: [0976328080](0976328080)</p>
+
+</section>
+
+<footer>
+
+© Pastor Morris C. Bwali Jr
+
+</footer>
+
+</body>
+</html>
